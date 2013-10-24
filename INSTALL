@@ -16,6 +16,11 @@ All installation related functions are accessed by the command::
 Install
 ==========
 
+Before install you need to generate resources by the command:
+
+    python setup.py resources
+    python setup.py iso639
+
 The first type of install will actually "install" calibre to
 your computer by putting its files into the system in the following locations:
 

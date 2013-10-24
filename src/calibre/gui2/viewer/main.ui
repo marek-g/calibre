@@ -67,14 +67,14 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
-            <widget class="QWebView" name="dictionary_view">
+            <widget class="QWebView" name="dictionary_view" native="true">
              <property name="minimumSize">
               <size>
                <width>0</width>
                <height>150</height>
               </size>
              </property>
-             <property name="url">
+             <property name="url" stdset="0">
               <url>
                <string>about:blank</string>
               </url>
@@ -121,31 +121,27 @@
     <enum>LeftToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
-    <bool>false</bool>
+    <bool>true</bool>
    </attribute>
+   <addaction name="action_open_ebook"/>
+   <addaction name="separator"/>
+   <addaction name="action_table_of_contents"/>
    <addaction name="action_back"/>
    <addaction name="action_forward"/>
    <addaction name="separator"/>
-   <addaction name="action_open_ebook"/>
-   <addaction name="action_copy"/>
    <addaction name="action_font_size_larger"/>
    <addaction name="action_font_size_smaller"/>
-   <addaction name="action_table_of_contents"/>
-   <addaction name="action_full_screen"/>
-   <addaction name="separator"/>
-   <addaction name="action_previous_page"/>
-   <addaction name="action_next_page"/>
-   <addaction name="separator"/>
-   <addaction name="action_bookmark"/>
-   <addaction name="action_reference_mode"/>
    <addaction name="separator"/>
    <addaction name="action_preferences"/>
-   <addaction name="action_metadata"/>
-   <addaction name="action_load_theme"/>
-   <addaction name="separator"/>
    <addaction name="action_print"/>
   </widget>
   <widget class="QToolBar" name="tool_bar2">
+   <property name="iconSize">
+    <size>
+     <width>22</width>
+     <height>22</height>
+    </size>
+   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
@@ -155,6 +151,34 @@
    <addaction name="action_find_next"/>
    <addaction name="action_find_previous"/>
    <addaction name="action_toggle_paged_mode"/>
+  </widget>
+  <widget class="QToolBar" name="tool_bar3">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>RightToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_load_theme"/>
+   <addaction name="action_reference_mode"/>
+   <addaction name="action_bookmark"/>
+   <addaction name="separator"/>
+   <addaction name="action_copy"/>
+   <addaction name="separator"/>
+   <addaction name="action_previous_page"/>
+   <addaction name="action_next_page"/>
+   <addaction name="separator"/>
+   <addaction name="action_metadata"/>
+   <addaction name="action_full_screen"/>
   </widget>
   <action name="action_back">
    <property name="icon">

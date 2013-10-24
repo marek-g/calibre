@@ -271,7 +271,7 @@ class EbookViewer(MainWindow, Ui_EbookViewer):
 
         self.themes_menu = QMenu()
         self.action_load_theme.setMenu(self.themes_menu)
-        self.tool_bar.widgetForAction(self.action_load_theme).setPopupMode(QToolButton.InstantPopup)
+        self.tool_bar3.widgetForAction(self.action_load_theme).setPopupMode(QToolButton.InstantPopup)
         self.load_theme_menu()
 
         if pathtoebook is not None:
@@ -281,7 +281,8 @@ class EbookViewer(MainWindow, Ui_EbookViewer):
         self.toc.setCursor(Qt.PointingHandCursor)
         self.tool_bar.setContextMenuPolicy(Qt.PreventContextMenu)
         self.tool_bar2.setContextMenuPolicy(Qt.PreventContextMenu)
-        self.tool_bar.widgetForAction(self.action_bookmark).setPopupMode(QToolButton.InstantPopup)
+        self.tool_bar3.setContextMenuPolicy(Qt.PreventContextMenu)
+        self.tool_bar3.widgetForAction(self.action_bookmark).setPopupMode(QToolButton.InstantPopup)
         self.action_full_screen.setCheckable(True)
         self.full_screen_label = QLabel('''
                 <center>
@@ -352,7 +353,7 @@ class EbookViewer(MainWindow, Ui_EbookViewer):
         w = self.tool_bar.widgetForAction(self.action_open_ebook)
         w.setPopupMode(QToolButton.MenuButtonPopup)
 
-        for x in ('tool_bar', 'tool_bar2'):
+        for x in ('tool_bar', 'tool_bar2', 'tool_bar3'):
             x = getattr(self, x)
             for action in x.actions():
                 # So that the keyboard shortcuts for these actions will
@@ -378,7 +379,7 @@ class EbookViewer(MainWindow, Ui_EbookViewer):
         self.reload()
 
     def settings_changed(self):
-        for x in ('', '2'):
+        for x in ('', '2', '3'):
             x = getattr(self, 'tool_bar'+x)
             x.setVisible(self.view.document.show_controls)
 
@@ -428,7 +429,7 @@ class EbookViewer(MainWindow, Ui_EbookViewer):
             e.ignore()
 
     def toggle_toolbars(self):
-        for x in ('tool_bar', 'tool_bar2'):
+        for x in ('tool_bar', 'tool_bar2', 'tool_bar3'):
             x = getattr(self, x)
             x.setVisible(not x.isVisible())
 
@@ -460,6 +461,7 @@ class EbookViewer(MainWindow, Ui_EbookViewer):
         # specific location, ensure they are visible.
         self.tool_bar.setVisible(True)
         self.tool_bar2.setVisible(True)
+        self.tool_bar3.setVisible(True)
         self.action_toggle_paged_mode.setChecked(not vprefs.get('in_paged_mode',
             True))
         self.toggle_paged_mode(self.action_toggle_paged_mode.isChecked(),
@@ -508,6 +510,7 @@ class EbookViewer(MainWindow, Ui_EbookViewer):
         self.window_mode_changed = 'fullscreen'
         self.tool_bar.setVisible(False)
         self.tool_bar2.setVisible(False)
+        self.tool_bar3.setVisible(False)
         self.was_maximized = self.isMaximized()
         if not self.view.document.fullscreen_scrollbar:
             self.vertical_scrollbar.setVisible(False)
@@ -908,14 +911,14 @@ class EbookViewer(MainWindow, Ui_EbookViewer):
 
     def close_progress_indicator(self):
         self.pi.stop()
-        for o in ('tool_bar', 'tool_bar2', 'view', 'horizontal_scrollbar', 'vertical_scrollbar'):
+        for o in ('tool_bar', 'tool_bar2', 'tool_bar3', 'view', 'horizontal_scrollbar', 'vertical_scrollbar'):
             getattr(self, o).setEnabled(True)
         self.unsetCursor()
         self.view.setFocus(Qt.PopupFocusReason)
 
     def open_progress_indicator(self, msg=''):
         self.pi.start(msg)
-        for o in ('tool_bar', 'tool_bar2', 'view', 'horizontal_scrollbar', 'vertical_scrollbar'):
+        for o in ('tool_bar', 'tool_bar2', 'tool_bar3', 'view', 'horizontal_scrollbar', 'vertical_scrollbar'):
             getattr(self, o).setEnabled(False)
         self.setCursor(Qt.BusyCursor)
 

@@ -899,6 +899,14 @@ class EbookViewer(MainWindow, Ui_EbookViewer):
             self.handle_window_mode_toggle()
         else:
             self.view.document.page_position.restore()
+
+            # MG: automatically switch between fullscreen and normal mode
+            if self.isFullScreen():
+		self.showFullScreen()
+	    else:
+	        self.was_maximized = self.isMaximized()
+		self.showNormal()
+
         self.view.document.after_resize()
         # For some reason scroll_fraction returns incorrect results in paged
         # mode for some time after a resize is finished. No way of knowing

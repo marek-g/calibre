@@ -521,7 +521,10 @@ class EbookViewer(MainWindow, Ui_EbookViewer):
         self.frame.layout().setContentsMargins(0, 0, 0, 0)
         self.centralwidget.layout().setContentsMargins(0, 0, 0, 0)
         self.frame.setFrameStyle(self.frame.NoFrame|self.frame.Plain)
-
+        self.prev_page_button.setMinimumWidth(self.view.document.outside_side_margin)
+        self.prev_page_button.setMaximumWidth(self.view.document.outside_side_margin)
+        self.next_page_button.setMinimumWidth(self.view.document.outside_side_margin)
+        self.next_page_button.setMaximumWidth(self.view.document.outside_side_margin)
         super(EbookViewer, self).showFullScreen()
 
     def show_full_screen_label(self):
@@ -592,6 +595,10 @@ class EbookViewer(MainWindow, Ui_EbookViewer):
         self.window_mode_changed = 'normal'
         self.settings_changed()
         self.full_screen_label.setVisible(False)
+        self.prev_page_button.setMinimumWidth(self.view.document.outside_side_margin)
+        self.prev_page_button.setMaximumWidth(self.view.document.outside_side_margin)
+        self.next_page_button.setMinimumWidth(self.view.document.outside_side_margin)
+        self.next_page_button.setMaximumWidth(self.view.document.outside_side_margin)
         if hasattr(self, '_original_frame_margins'):
             om = self._original_frame_margins
             self.centralwidget.layout().setContentsMargins(om[0])

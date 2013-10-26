@@ -155,6 +155,7 @@ class Document(QWebPage):  # {{{
         self.cols_per_screen = opts.cols_per_screen
         self.side_margin = opts.side_margin
         self.top_margin, self.bottom_margin = opts.top_margin, opts.bottom_margin
+        self.outside_side_margin = opts.outside_side_margin
         self.show_controls = opts.show_controls
 
     def fit_images(self):

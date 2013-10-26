@@ -69,6 +69,7 @@ def config(defaults=None):
     c.add_opt('top_margin', default=20)
     c.add_opt('side_margin', default=40)
     c.add_opt('bottom_margin', default=20)
+    c.add_opt('outside_side_margin', default=40)
     c.add_opt('text_color', default=None)
     c.add_opt('background_color', default=None)
     c.add_opt('show_controls', default=True)
@@ -228,7 +229,7 @@ class ConfigDialog(QDialog, Ui_Dialog):
         self.opt_fullscreen_pos.setChecked(opts.fullscreen_pos)
         self.opt_cols_per_screen.setValue(opts.cols_per_screen)
         self.opt_override_book_margins.setChecked(not opts.use_book_margins)
-        for x in ('top', 'bottom', 'side'):
+        for x in ('top', 'bottom', 'side', 'outside_side'):
             getattr(self, 'opt_%s_margin'%x).setValue(getattr(opts,
                 x+'_margin'))
         for x in ('text', 'background'):
@@ -309,7 +310,7 @@ class ConfigDialog(QDialog, Ui_Dialog):
         c.set('text_color', self.current_text_color)
         c.set('background_color', self.current_background_color)
         c.set('show_controls', self.opt_show_controls.isChecked())
-        for x in ('top', 'bottom', 'side'):
+        for x in ('top', 'bottom', 'side', 'outside_side'):
             c.set(x+'_margin', int(getattr(self, 'opt_%s_margin'%x).value()))
 
 

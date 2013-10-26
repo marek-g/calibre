@@ -67,8 +67,8 @@ QToolBox::tab:hover {
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>811</width>
-            <height>380</height>
+            <width>795</width>
+            <height>342</height>
            </rect>
           </property>
           <attribute name="label">
@@ -240,8 +240,8 @@ QToolBox::tab:hover {
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>811</width>
-            <height>380</height>
+            <width>795</width>
+            <height>342</height>
            </rect>
           </property>
           <attribute name="label">
@@ -296,6 +296,9 @@ QToolBox::tab:hover {
            </item>
            <item row="3" column="0">
             <widget class="QLabel" name="label_18">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
              <property name="text">
               <string>&amp;Top margin</string>
              </property>
@@ -363,6 +366,32 @@ QToolBox::tab:hover {
              </property>
             </widget>
            </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_24">
+             <property name="text">
+              <string>Outside side margin</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1">
+            <widget class="QSpinBox" name="opt_outside_side_margin">
+             <property name="suffix">
+              <string> px</string>
+             </property>
+             <property name="prefix">
+              <string/>
+             </property>
+             <property name="minimum">
+              <number>0</number>
+             </property>
+             <property name="maximum">
+              <number>1000</number>
+             </property>
+             <property name="value">
+              <number>10</number>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
          <widget class="QWidget" name="page_2">
@@ -370,8 +399,8 @@ QToolBox::tab:hover {
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>811</width>
-            <height>380</height>
+            <width>795</width>
+            <height>342</height>
            </rect>
           </property>
           <attribute name="label">
@@ -446,8 +475,8 @@ QToolBox::tab:hover {
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>811</width>
-            <height>380</height>
+            <width>795</width>
+            <height>342</height>
            </rect>
           </property>
           <attribute name="label">
@@ -525,8 +554,8 @@ QToolBox::tab:hover {
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>811</width>
-            <height>380</height>
+            <width>795</width>
+            <height>342</height>
            </rect>
           </property>
           <attribute name="label">
@@ -596,8 +625,8 @@ QToolBox::tab:hover {
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>811</width>
-            <height>380</height>
+            <width>795</width>
+            <height>342</height>
            </rect>
           </property>
           <attribute name="label">
@@ -931,6 +960,22 @@ QToolBox::tab:hover {
     <hint type="destinationlabel">
      <x>371</x>
      <y>281</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>opt_override_book_margins</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>opt_outside_side_margin</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>419</x>
+     <y>204</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>401</x>
+     <y>298</y>
     </hint>
    </hints>
   </connection>
